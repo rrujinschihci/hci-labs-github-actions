@@ -1,0 +1,24 @@
+#!/bin/bash
+# Set the GitHub PAT as an environment variable
+export GITHUB_TOKEN=PAT_TOKEN_VALUE
+
+# Log into Azure and select a subscription where you will deploy resources
+az account login -s SUBSCRIPTION_NAME
+
+# Go into the remote setup directory
+cd remote_setup
+
+# Initialize and apply the code
+# If you use a different repository name, you'll need to specify -var=github_repository=rrujinschihci/hci-labs-github-actions
+terraform init
+terraform apply -auto-approve # Because we live on the edge!
+
+
+#Variables
+#ARM_CLIENT_ID
+#ARM_CLIENT_SECRET
+#ARM_SUBSCRIPTION_ID
+#ARM_TENANT_ID
+#CONTAINER_NAME
+#RESOURCE_GROUP
+#STORAGE_ACCOUNT
